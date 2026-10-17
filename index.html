@@ -4,83 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatica Ricondizionata Professionale</title>
-    <!-- Script Integrale Tailwind CSS per caricamento immediato -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Icone professionali per i dettagli dei computer -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Stile Grafico Puro Integrato (Antiblocco GitHub) -->
     <style>
-        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f3f4f6; color: #1f2937; line-height: 1.5; }
+        
+        /* Barra di Navigazione */
+        .navbar { background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 50; padding: 15px 20px; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: 900; color: #2563eb; text-decoration: none; tracking-tight: -0.025em; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.2s; }
+        .nav-links a:hover { color: #2563eb; }
+
+        /* Sezione Hero (Inizio) */
+        .hero { background: linear-gradient(135deg, #1d4ed8 0%, #312e81 100%); color: #ffffff; text-align: center; padding: 60px 20px; }
+        .hero-badge { background-color: #3b82f6; display: inline-block; padding: 4px 12px; rounded: 9999px; font-size: 12px; font-weight: 700; text-transform: uppercase; border-radius: 50px; margin-bottom: 15px; }
+        .hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 15px; }
+        .hero p { font-size: 18px; color: #bfdbfe; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-btn { background-color: #10b981; color: white; font-weight: 700; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-size: 18px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .hero-btn:hover { background-color: #059669; transform: translateY(-2px); }
+
+        /* Contenitore e Layout */
+        .main-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .section-title { font-size: 28px; font-weight: 800; border-left: 5px solid #2563eb; padding-left: 15px; margin-bottom: 30px; }
+        
+        /* Griglia Prodotti */
+        .grid-prodotti { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card-prodotto { background-color: #ffffff; border-radius: 12px; border: 1px solid #e5e7eb; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .card-body { padding: 25px; }
+        .badge-grado { background-color: #d1fae5; color: #065f46; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 15px; }
+        .card-prodotto h3 { font-size: 20px; font-weight: 700; margin-bottom: 15px; }
+        
+        /* Lista Specifiche */
+        .specifiche-list { list-style: none; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; padding: 15px 0; margin-bottom: 20px; }
+        .specifiche-list li { font-size: 14px; color: #4b5563; margin-bottom: 8px; display: flex; align-items: center; }
+        .specifiche-list li::before { content: "•"; color: #2563eb; font-weight: bold; font-size: 18px; margin-right: 10px; width: 10px; display: inline-block; }
+
+        /* Prezzo e Bottone */
+        .card-footer { padding: 25px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center; }
+        .prezzo { font-size: 32px; font-weight: 900; color: #111827; margin-bottom: 5px; }
+        .garanzia-testo { font-size: 12px; color: #6b7280; margin-bottom: 15px; }
+        .btn-acquista { display: block; background-color: #2563eb; color: #ffffff; text-decoration: none; font-weight: 700; padding: 12px; border-radius: 8px; transition: background-color 0.2s; }
+        .btn-acquista:hover { background-color: #1d4ed8; }
+
+        /* Sezioni Informative */
+        .info-box { background-color: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin-bottom: 40px; }
+        .info-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #111827; }
+        
+        .grado-item { padding: 15px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #10b981; background-color: #f0fdf4; }
+        .grado-item.b { border-left-color: #f59e0b; background-color: #fffbeb; }
+        .grado-item h4 { font-weight: 700; margin-bottom: 5px; }
+        .grado-item p { font-size: 14px; color: #4b5563; }
+
+        .grid-due-colonne { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        .colonna-testo h4 { font-weight: 700; margin-bottom: 10px; font-size: 16px; }
+        .colonna-testo p { font-size: 14px; color: #4b5563; line-height: 1.6; }
+
+        /* Footer */
+        footer { background-color: #111827; color: #9ca3af; padding: 40px 20px; text-align: center; font-size: 14px; margin-top: 60px; border-top: 1px solid #374151; }
+        footer p { margin-bottom: 10px; }
+        footer strong { color: #ffffff; }
+        footer a { color: #60a5fa; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 640px) {
+            .nav-container { flex-col; gap: 15px; text-align: center; }
+            .hero h1 { font-size: 28px; }
+            .grid-due-colonne { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans">
+<body>
 
     <!-- BARRA DI NAVIGAZIONE SUPERIORE -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <a href="#" class="text-2xl font-black text-blue-600 tracking-tight flex items-center gap-2">
-                <i class="fa-solid fa-laptop-code"></i> TECH REBORN
-            </a>
-            <div class="flex gap-6 font-semibold text-gray-600">
-                <a href="#catalogo" class="hover:text-blue-600 transition">Catalogo PC</a>
-                <a href="#gradi" class="hover:text-blue-600 transition">Gradi Usura</a>
-                <a href="#garanzia" class="hover:text-blue-600 transition">Garanzia & Resi</a>
-                <a href="#chisiamo" class="hover:text-blue-600 transition">Chi Siamo</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">TECH REBORN</a>
+            <div class="nav-links">
+                <a href="#catalogo">Catalogo PC</a>
+                <a href="#gradi">Gradi Usura</a>
+                <a href="#garanzia">Garanzia & Resi</a>
+                <a href="#chisiamo">Chi Siamo</a>
             </div>
         </div>
     </nav>
 
     <!-- INTRODUZIONE INIZIALE (HERO SECTION) -->
-    <header class="bg-gradient-to-r from-blue-700 to-indigo-900 text-white py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <span class="bg-blue-500 text-white text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider">Store Ufficiale con Partita IVA</span>
-            <h1 class="text-4xl sm:text-5xl font-extrabold mt-4 mb-4 tracking-tight text-white">Computer Ricondizionati Come Nuovi.</h1>
-            <p class="text-lg text-blue-100 mb-8">Hardware professionale testato in laboratorio. Risparmia fino al 60% e ottieni 12 mesi di garanzia inclusa.</p>
-            <a href="#catalogo" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 inline-block">
-                <i class="fa-solid fa-basket-shopping mr-2"></i> Sfoglia i PC Disponibili
-            </a>
-        </div>
+    <header class="hero">
+        <span class="hero-badge">Store Ufficiale con Partita IVA</span>
+        <h1>Computer Ricondizionati Come Nuovi</h1>
+        <p>Hardware professionale completamente verificato in laboratorio. Risparmia fino al 60% rispetto al prezzo di listino e ricevi 12 mesi di garanzia inclusa.</p>
+        <a href="#catalogo" class="hero-btn">Sfoglia i PC Disponibili</a>
     </header>
 
     <!-- CONTENITORE PRINCIPALE -->
-    <main class="max-w-6xl mx-auto px-4 py-12">
+    <main class="main-container">
 
         <!-- SEZIONE CATALOGO PRODOTTI -->
-        <section id="catalogo" class="mb-16">
-            <div class="border-l-4 border-blue-600 pl-4 mb-8">
-                <h2 class="text-3xl font-extrabold tracking-tight">Il Nostro Hardware Disponibile</h2>
-                <p class="text-gray-500 mt-1">Prodotti in pronta consegna, igienizzati e pronti all'uso.</p>
-            </div>
+        <section id="catalogo">
+            <h2 class="section-title">Il Nostro Hardware Disponibile</h2>
 
             <!-- GRIGLIA PRODOTTI -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid-prodotti">
                 
                 <!-- ======================================================== -->
                 <!-- PRODOTTO 1: PER MODIFICARE IL PC, CAMBIA I TESTI QUI SOTTO -->
                 <!-- ======================================================== -->
-                <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-200">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">GRADO A++ (Come Nuovo)</span>
-                            <span class="text-gray-400 font-mono text-xs">ID: #001</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">Lenovo ThinkPad T480</h3>
+                <div class="card-prodotto">
+                    <div class="card-body">
+                        <span class="badge-grado">GRADO A++ (Come Nuovo)</span>
+                        <h3>Lenovo ThinkPad T480</h3>
                         
-                        <!-- Lista Specifiche Tecniche con Icone -->
-                        <ul class="space-y-2.5 text-sm text-gray-600 mb-6 border-t border-b border-gray-100 py-4">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-microchip text-blue-500 w-4"></i> Intel Core i5 (8a Gen)</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-memory text-blue-500 w-4"></i> 16 GB RAM DDR4</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-hard-drive text-blue-500 w-4"></i> 512 GB SSD NVMe Superveloce</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-window-restore text-blue-500 w-4"></i> Windows 11 Pro Originale</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-battery-three-quarters text-blue-500 w-4"></i> Batteria Eccellente (>85%)</li>
+                        <!-- Lista Specifiche Tecniche -->
+                        <ul class="specifiche-list">
+                            <li>Intel Core i5 (8a Generazione)</li>
+                            <li>16 GB RAM DDR4</li>
+                            <li>512 GB SSD NVMe Superveloce</li>
+                            <li>Windows 11 Pro Licenza Originale</li>
+                            <li>Batteria Eccellente (Capacità >85%)</li>
                         </ul>
                     </div>
-                    <div class="p-6 bg-gray-50 border-t border-gray-100 text-center">
-                        <div class="text-3xl font-black text-gray-900 mb-3">249,00 €</div>
-                        <p class="text-xs text-gray-400 mb-3"><i class="fa-solid fa-shield-halved"></i> Garanzia 1 Anno + Alimentatore Incluso</p>
+                    <div class="card-footer">
+                        <div class="prezzo">249,00 €</div>
+                        <p class="garanzia-testo">Garanzia 1 Anno + Alimentatore Incluso</p>
                         <!-- Incolla il tuo link di pagamento Stripe/PayPal al posto del # -->
-                        <a href="#" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-lg shadow transition block">
-                            <i class="fa-solid fa-credit-card mr-2"></i> Acquista Ora
-                        </a>
+                        <a href="#" target="_blank" class="btn-acquista">Acquista Ora</a>
                     </div>
                 </div>
                 <!-- ======================================================== -->
@@ -91,47 +140,25 @@
         </section>
 
         <!-- SEZIONE GUIDA AI GRADI -->
-        <section id="gradi" class="mb-16 bg-white p-8 rounded-xl shadow-md border border-gray-100">
-            <h2 class="text-2xl font-bold mb-6 text-gray-900 flex items-center gap-2"><i class="fa-solid fa-star text-amber-500"></i> Come Classifichiamo i Nostri Prodotti</h2>
-            <div class="space-y-4">
-                <div class="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                    <h3 class="font-bold text-emerald-950">Grado A++ (Come Nuovo)</h3>
-                    <p class="text-sm text-emerald-900 mt-1">Dispositivo in condizioni estetiche perfette. Schermo privo di graffi, scocca impeccabile. Pari al nuovo.</p>
-                </div>
-                <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                    <h3 class="font-bold text-blue-950">Grado A (Ottimo Stato)</h3>
-                    <p class="text-sm text-blue-900 mt-1">Il computer è in ottime condizioni generali. Può presentare solo lievissimi e quasi invisibili micro-segni d'usura sulla scocca esterna.</p>
-                </div>
-                <div class="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
-                    <h3 class="font-bold text-amber-950">Grado B (Segni di Usura Estetici)</h3>
-                    <p class="text-sm text-amber-900 mt-1">Hardware perfetto e verificato al 100%. Esteticamente presenta graffi visibili o scolorimenti sulla scocca. Ottimo per risparmiare al massimo.</p>
-                </div>
+        <section id="gradi" class="info-box">
+            <h2>Come Classifichiamo i Nostri Prodotti</h2>
+            <div class="grado-item">
+                <h4>Grado A++ (Come Nuovo)</h4>
+                <p>Dispositivo in condizioni estetiche impeccabili. Schermo privo di graffi, scocca perfetta. Pari al nuovo in tutto.</p>
+            </div>
+            <div class="grado-item" style="border-left-color: #2563eb; background-color: #eff6ff;">
+                <h4>Grado A (Ottimo Stato)</h4>
+                <p>Il computer si presenta in ottimo stato generale. Può mostrare esclusivamente lievissimi e quasi invisibili micro-segni di usura sulla scocca esterna.</p>
+            </div>
+            <div class="grado-item b">
+                <h4>Grado B (Segni di Usura Estetici)</h4>
+                <p>Hardware perfetto e verificato al 100% in laboratorio. Esteticamente presenta graffi visibili sulla scocca o scolorimenti. Ottimo per risparmiare al massimo.</p>
             </div>
         </section>
 
         <!-- SEZIONE GARANZIA E RESI -->
-        <section id="garanzia" class="mb-16 bg-white p-8 rounded-xl shadow-md border border-gray-100">
-            <h2 class="text-2xl font-bold mb-4 text-gray-900 flex items-center gap-2"><i class="fa-solid fa-handshake text-blue-600"></i> Trasparenza, Garanzia Legale e Resi</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                <div>
-                    <h3 class="font-bold text-lg mb-2 text-gray-800">12 Mesi di Garanzia Inclusa</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Ogni pezzo di hardware venduto è coperto da Garanzia Legale di Conformità hardware per un anno intero. I nostri test azzerano i problemi, ma in caso di guasti improvvisi ripariamo o sostituiamo il PC a nostre spese.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-2 text-gray-800">Diritto di Recesso di 14 Giorni</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Puoi cambiare idea senza problemi. Se il computer ricevuto non soddisfa le tue aspettative estetiche o funzionali, hai due settimane di tempo per rispedirlo integro e ricevere il rimborso completo.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEZIONE CHI SIAMO -->
-        <section id="chisiamo" class="bg-gray-900 text-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 text-white"><i class="fa-solid fa-screwdriver-wrench text-emerald-400"></i> Il Processo di Rigenerazione Digitale</h2>
-            <p class="text-gray-300 text-sm leading-relaxed mb-6">Non siamo semplici venditori di usato. Ogni computer viene aperto nei nostri laboratori, ripulito accuratamente da polvere e detriti, aggiornato con memorie allo stato solido (SSD) veloci e stabilizzato termicamente applicando pasta termica professionale ad alte prestazioni sulla CPU.</p>
-            <div class="flex flex-wrap gap-4 text-xs font-mono text-emerald-400">
-                <span><i class="fa-solid fa-check"></i> Test Scheda Madre</span>
-                <span><i class="fa-solid fa-check"></i> Upgrade SSD & RAM</span>
-                <span><i class="fa-solid fa-check"></i> Cambio Pasta Termica</span>
-                <span><i class="fa-solid fa-check"></i> Sanificazione Scocca</span>
-            </div>
-        </section>
+        <section id="garanzia" class="info-box">
+            <h2>Trasparenza, Garanzia Legale e Resi</h2>
+            <div class="grid-due-colonne">
+                <div class="colonna-testo">
+                    <h4>12 Mesi di Garanzia Inclusa</h4>
